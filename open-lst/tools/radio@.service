@@ -13,6 +13,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+[Install]
+WantedBy=multi-user.target
+
 
 [Unit]
 Description=Radiomux instance for comms with the Open LST radio
@@ -20,9 +23,9 @@ BindsTo=dev-lst_uart%i.device
 
 [Service]
 Type=simple
-User=vagrant
+User=emily
 Group=dialout
-ExecStart=/usr/local/bin/radio_mux --rx-socket ipc:///tmp/radiomux%i_rx --tx-socket ipc:///tmp/radiomux%i_tx --echo-socket ipc:///tmp/radiomux%i_echo --mode 777 /dev/lst_uart%i
+ExecStart=radio_mux --rx-socket ipc:///tmp/radiomux%i_rx --tx-socket ipc:///tmp/radiomux%i_tx --echo-socket ipc:///tmp/radiomux%i_echo --mode 777 /dev/lst_uart%i
 ExecStopPost=/bin/sh -c "rm /tmp/radiomux%i_*"
 RestartSec=1
 Restart=always

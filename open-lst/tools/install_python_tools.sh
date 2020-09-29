@@ -15,11 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-sudo apt-get update
-sudo apt-get install --assume-yes python-dev python-pip
-sudo pip install -e /home/vagrant/project/open-lst/tools
+#sudo apt-get update
+#sudo apt-get install --assume-yes python2.7-dev python-pip
+pip2 install --force-reinstall --ignore-installed -e /home/emily/Code/Software/openlst/open-lst/tools
 
 # Install the radio services
-sudo cp /home/vagrant/project/open-lst/tools/radio@.service /etc/systemd/system/radio@.service
+sudo cp /home/emily/Code/Software/openlst/open-lst/tools/radio@.service /etc/systemd/system/radio@.service
 sudo systemctl daemon-reload
 sudo systemctl enable radio@0 radio@1
+sudo systemctl status radio@0 radio@1
