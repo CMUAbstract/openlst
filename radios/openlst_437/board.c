@@ -18,10 +18,10 @@
 #include "cc1110_regs.h"
 
 void board_init(void) {
-	// LED0 setup - just turn it on
+	// LED0 setup - just turn it off
 	P0SEL &= ~(1<<6);  // GPIO not peripheral
 	P0DIR |= 1<<6;  // Output not input
-	P0_6 = 1;
+	P0_6 = 0; // turn off led0
 
 	// LED1 setup
 	P0SEL &= ~(1<<7);  // GPIO not peripheral
@@ -45,6 +45,7 @@ void board_init(void) {
         // No special function for P1_5 (IOCFG0)
 }
 
+// Turn off led flips for flight
 void board_led_set(__bit led_on) {
-  P0_7 = led_on;
+  //P0_7 = led_on;
 }
