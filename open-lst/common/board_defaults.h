@@ -49,9 +49,9 @@
 #define CONFIG_CAPABLE_RF_TX 1
 #endif
 
-// Only using UART1
+// By default, enable both UARTs
 #ifndef UART0_ENABLED
-#define UART0_ENABLED 0
+#define UART0_ENABLED 1
 #endif
 #ifndef UART1_ENABLED
 #define UART1_ENABLED 1
@@ -193,7 +193,6 @@
 #endif
 
 // Overrideable defaults for simple RF channel customization:
-// Changing default to be 437.5MHz
 #ifndef RF_FSCTRL1
 #define RF_FSCTRL1 0x06
 #endif
@@ -204,10 +203,10 @@
 #define RF_FREQ2 0x10
 #endif
 #ifndef RF_FREQ1
-#define RF_FREQ1 0x34
+#define RF_FREQ1 0x2F
 #endif
 #ifndef RF_FREQ0
-#define RF_FREQ0 0x26
+#define RF_FREQ0 0x69
 #endif
 // The defaults here are the CC1110 hard defaults
 #ifndef RF_SYNC_WORD1

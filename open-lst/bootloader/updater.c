@@ -75,8 +75,8 @@ void updater(void) {
 	#if BOARD_HAS_LED == 1
 	board_led_set(1);
 	#endif
-  //turning this off for our sanity
-	//send_message(BOOT_STRING(GIT_REV));
+	
+	send_message(BOOT_STRING(GIT_REV));
 	timeout = COMMAND_WATCHDOG_DELAY;
 	while (--timeout) {
 		#if UART0_ENABLED == 1
